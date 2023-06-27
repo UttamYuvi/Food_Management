@@ -1,0 +1,199 @@
+<style>
+    .maincontainer {
+        display: flex;
+        justify-content: center;
+        background-color: red;
+        height: 125vh;
+    }
+
+    .root {
+        width: 1000px;
+        height: auto;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .heading {
+        color: red;
+        font-size: 60;
+        font-weight: bold;
+        font-family: 'Hurricane', cursive;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+    }
+</style>
+
+
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/javascripts/fillfood.js"> </script>
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+
+        $(document).ready(function () {
+            $('.timepicker').timepicker();
+        });
+
+    </script>
+    
+</head>
+
+<body>
+    <div class="maincontainer">
+        <div class="root">
+            <form action="/foods/editrecord" method="post">
+                <div class="heading">
+                    <span><img src="/images/logo1.png" alt="logo" width="90px"></span> Food Inquiry
+
+                </div>
+                <hr width="34%" color="red">
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">restaurant</i>
+                            <input id="icon_fid" name="foodlistid" value="<%=data.foodlistid%>" type="text"
+                                readonly="true" class="validate">
+                            <label for="icon_fid">Food List Id</label>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">restaurant_menu</i>
+                            <select name="category" id="category">
+                                <option value="<%=data.categoryid%>" selected><%=data.cn%>
+                                </option>
+
+                            </select>
+                            <label for="category">Food Category</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">restaurant_menu</i>
+                            <select name="food" id="food">
+                                <option value="<%=data.foodid%>" selected><%=data.fn%>
+                                </option>
+
+                            </select>
+                            <label for="category">Food Name</label>
+
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col s6">
+                        <span style="display: flex; justify-content: center; padding: 5px; ">
+
+                            <span>
+                                <label>
+                                    <input class="with-gap" name="foodtype" value="veg" type="radio" <%=data.foodtype.includes('veg')?'checked':''%> />
+                                    <span>Veg</span>
+                                </label>
+                            </span>
+                            <span>
+                                <label>
+                                    <input name="foodtype" value="non-veg" type="radio" <%=data.foodtype.includes('non-veg')?'checked':''%>/>
+                                    <span>Non-Veg</span>
+                                </label>
+                            </span>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <i class="material-icons prefix">restaurant</i>
+                            <input id="icon_ingredients" name="ingredients" value="<%=data.ingredients%>" type="text"
+                                class="validate">
+                            <label for="icon_ingredients">Ingredients</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">restaurant</i>
+                            <input id="icon_price" name="price" value="<%=data.price%>" type="text" class="validate">
+                            <label for="icon_price">Price</label>
+                        </div>
+                    </div>
+
+                    <div class="col s6">
+                        <div class="input-field">
+                            <i class="material-icons prefix">restaurant</i>
+                            <input id="icon_offerprice" name="offerprice" value="<%=data.offerprice%>" type="text"
+                                class="validate">
+                            <label for="icon_offerprice">Offer Price</label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col s12">
+                        <span style="display: flex; justify-content: center; padding: 5px; ">
+                            <span>
+                                <label>
+                                    <input class="with-gap" name="stock" value="continue" type="radio" <%=data.stock.includes('continue')?'checked':''%>/>
+                                    <span>In Stock</span>
+                                </label>
+                            </span>
+                            <span>
+                                <label>
+                                    <input name="stock" value="discontinue" type="radio" <%=data.stock.includes('discontinue')?'checked':''%> />
+                                    <span>Not In Stock</span>
+                                </label>
+                            </span>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6" style="display: flex; justify-content:center;">
+
+                        <button class="btn waves-effect waves-light" type="submit" name="action" value="Save">Save
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+
+                    <div class="col s6" style="display: flex; justify-content:center;">
+
+                        <button class="btn waves-effect waves-light" type="submit" name="action" value="delete">Delete
+                            <i class="material-icons right">remove</i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--JavaScript at end of body for optimized loading-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</html>

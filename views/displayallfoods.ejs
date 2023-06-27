@@ -1,0 +1,112 @@
+<style>
+    .maincontainer {
+        display: flex;
+        justify-content: center;
+        background-color: red;
+        height: 100vh;
+    }
+
+    .root {
+        width: 1200px;
+        height: auto;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .heading {
+        color: red;
+        font-size: 60;
+        font-weight: bold;
+        font-family: 'Hurricane', cursive;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+    }
+</style>
+
+<html>
+
+<head>
+    <!-- Import Icon  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Import google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <div class="maincontainer">
+        <div class="root">
+            <div class="heading">
+                <span><img src="/images/logo1.png" alt="logo" width="90px"></span> Food Inquiry
+
+            </div>
+            <hr width="30%" color="red">
+            <table class="striped">
+
+                <thead>
+                    <tr>
+                        <th>Food_Id</th>
+                        <th>Category</th>
+                        <th>Food Name</th>
+                        <th>Food_Type</th>
+                        <th>Ingredients</th>
+                        <th>Price</th>
+                        <th>Offer_Price</th>
+                        <th>Status</th>
+                        <th>Updata</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+
+                    <% data.map((item)=> { %>
+                        <tr>
+                            <td>
+                                <%= item.foodlistid %>
+                            </td>
+                            <td>
+                                <%=item.cn%>
+                            </td>
+                            <th>
+                                <%=item.fn%><br>
+                                    <a
+                                        href="/foods/showpicture?foodlistid=<%=item.foodlistid%>&fn=<%=item.fn%>&picture=<%=item.picture %>"><img
+                                            src="/images/<%=item.picture %>" alt="food" width="40"></a>
+                            </th>
+                            <td>
+                                <%= item.foodtype %>
+                            </td>
+                            <td>
+                                <%= item.ingredients %>
+                            </td>
+                            <td>
+                                <%= item.price %>
+                            </td>
+                            <td>
+                                <%= item.offerprice %>
+                            </td>
+                            <td>
+                                <%= item.stock %>
+                            </td>
+                            <td><a href="/foods/display_by_id?foodlistid=<%=item.foodlistid%>"> <abbr title="Edit Foods"
+                                        style="text-decoration:none ;">Update</abbr></a></td>
+                        </tr>
+
+                        <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</head>
+
+
+</html>

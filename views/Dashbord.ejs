@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <!-- Import Icon  -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <!-- Import google font -->
+   <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
+
+   <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+
+
+<body>
+    <nav style="background: red">
+        <div class="nav-wrapper"  >
+          
+          <a href="#" class="brand-logo"><i style="display: flex; justify-content: top; align-items: top; font-weight: bold; "><img src="/images/logo1.png" width="70px" alt="logo" >Food Inquiry</i></a>
+    
+          
+          <ul class="right hide-on-med-and-down">
+
+            <a href="/admin/adminlogout">
+              <span style="color: #fff">
+                <abbr title="Logout" style="text-decoration: none;">
+                  <i class="material-icons">lock_outline</i>
+                </abbr>
+              </span>
+            </a>
+    
+            </li>
+    
+    
+    
+          </ul>
+          
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/foods/addfoods" target="mw">Add Foods</i></a></li>
+            <li><a href="/foods/display_all_foods" target="mw">Display Foods</i></a></li>
+            <li><a href="/foods/search" target="mw"><i class="material-icons">search</i></a></li>
+            <li>
+              
+              <a href="/employee/about?employeeid=<%=result.employeeid%>" target="mw">
+                <span style="display:inline-block; ;display: flex; align-items:center;"><img
+                    style="border-radius:35px; border:2px solid white; margin-right: 5px;" src="/images/admin.png"
+                    alt="admin" width="50px">
+                  <span style="color:#fff; ">
+                    <%=result.adminname%>
+                  </span></span>
+              </a>
+            </li>
+    
+          </ul>
+          
+          
+        </div>
+      </nav>
+
+
+      
+      <iframe  frameborder="0" style="width: 215vh; height:600px" name="mw"></iframe>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<style>
+    .root {
+        display: flex;
+        justify-content: center;
+        width: 1270px;
+        height: 100vh;
+        padding-left: 450px;
+        padding-top: 110px;
+    }
+
+    .logincontainer {
+        display: flex;
+        justify-content: center;
+        width: 600px;
+        height: 81vh;
+
+    }
+
+    .container {
+
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+        border-radius: 10px;
+        height: auto;
+        width: 300px;
+
+    }
+
+    .containt {
+
+        color: red;
+        font-size: 35;
+        font-weight: bold;
+        font-family: 'Hurricane', cursive;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+
+        width: auto;
+        
+    }
+
+    body {
+        height: 95%;
+        background-image: url("/images/loginback.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<html>
+
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+</head>
+
+
+
+<body>
+  
+
+
+    <div class="root">
+        <div class="logincontainer">
+            <div class="container">
+                
+
+                    <form action="/admin/checkadminlogin" method="post">
+                        <div class="containt">
+                            <span><img src="/images/logo1.png" alt="logo" width="60px"></span> Food Inquiry
+                        </div>
+                        <div class="row">
+                            <div class="col s12" style="display: flex; justify-content: center; ">
+                                <span><img src="/images/admin.png" width="90" alt="logo"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="icon_userid" name="id" type="email" class="validate">
+                                    <label for="icon_userid">Email</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">search</i>
+                                    <input id="icon_password" name="password" type="password" class="validate">
+                                    <label for="icon_password">Password</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s4" style="display: flex; justify-content:center;">
+
+                                <button class="btn waves-effect waves-light" type="submit" name="login">login
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                            <div class="col s8" style="display: flex; justify-content:center; color: red;">
+
+                                <h6>
+                                    <%=msg%>
+                                </h6>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+                
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<!--JavaScript at end of body for optimized loading-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+</html>
